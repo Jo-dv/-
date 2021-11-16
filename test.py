@@ -1,9 +1,11 @@
 import time
 import serial
 import numpy as np
+import matplotlib.pyplot as plt
+import keyboard
 
 from brainflow.board_shim import BoardShim, BrainFlowInputParams, LogLevels, BoardIds
-from brainflow.data_filter import DataFilter, FilterTypes, AggOperations, NoiseTypes, WindowFunctions, DetrendOperations
+from brainflow.data_filter import DataFilter
 from brainflow.ml_model import MLModel, BrainFlowMetrics, BrainFlowClassifiers, BrainFlowModelParams
 
 def main():
@@ -40,13 +42,14 @@ def main():
     
     board.prepare_session()  # 보드 연결 준비
     board.start_stream()  # 보드 스트림 시작
-    BoardShim.log_message(LogLevels.LEVEL_INFO.value, 'start sleeping in the main thread')  # 스트림 시작시 메시지 출력
+    BoardShim.log_message(LogLevels.LEVEL_INFO.value, 'Stream start')  # 스트림 시작시 메시지 출력
 
+    trial = 0  # 예측 데이터 생성 횟수
+    focusing_point = 0  # 예측 데이터 중, 집중한 데이터 갯수
     while True:
         time.sleep(5)  # 계산 텀 설정
         data = board.get_board_data()  # 보드에서 데이터 읽어오기
-        #DataFilter.remove_environmental_noise(data[0], sampling_rate, 1)
-        #DataFilter.remove_environmental_noise(data[1], sampling_rate, 1)
+        trial += 1
 
         bands = DataFilter.get_avg_band_powers(data, eeg_channels, sampling_rate, True)  # 채널별 데이터 대역 파워의 평균 및 표준편차 계산
         feature_vector = np.concatenate((bands[0], bands[1]))  # 대역 평균[0], 표준편차[1] 취합
@@ -58,12 +61,25 @@ def main():
 
         if prediction > threshold:  # 예측값이랑 임계값 비교후 아두이노에 전송
             ser.write(b'1')  # 집중 상태로 판단
+            focusing_point += 1  # 집중 데이터 갯수 증가
         else:
             ser.write(b'0')  # 비집중 상태로 판단
+
+        if keyboard.is_pressed('enter'):
+            break
 
     board.stop_stream()
     board.release_session()
     # 스트림 종료
+
+    BoardShim.log_message(LogLevels.LEVEL_INFO.value, 'Stream end')  # 스트림 종료 메시지 출력
+    x = np.arange(2)
+    trial_label = ['Trial', 'Focusing']
+    trial_value = [trial, focusing_point]
+    plt.bar(x, trial_value)
+    plt.xticks(x, trial_label)
+    plt.show()
+    # 데이터 스트림 횟수와 그 중 집중한 횟수 시각화
 
 if __name__ == "__main__":
     main()
