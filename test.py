@@ -60,17 +60,18 @@ def main():
     BoardShim.log_message(LogLevels.LEVEL_INFO.value, 'Stream start')  # 스트림 시작시 메시지 출력
     trial = 0  # 예측 데이터 생성 횟수
     focusing_point = 0  # 예측 데이터 중, 집중한 데이터 갯수
+    continuous_focusing_point = 0  # 지속적인 집중을 수행한 횟수
+    continuous_focusing_table = []  # 지속적인 집중에 대한 정보 테이블
+    
     while True:
         while board.get_board_data_count() < 250:  # 읽어들일 데이터 수
             time.sleep(0.005)  # 데이터 읽어오는 시간
         data = board.get_current_board_data(250)[:3, :]  # 보드에서 데이터 읽어오기, 0번행은 인덱스
-        time.sleep(5)  # 출력 시간 조정
+        time.sleep(1)  # 출력 시간 조정
         
         for i in range(len(eeg_channels)):  # 필터링
             DataFilter.perform_bandstop(data[i + 1], sampling_rate, bandStopFrequency, 4.0, 2, FilterTypes.BUTTERWORTH.value, 0)  # 노치 필터
             DataFilter.perform_bandpass(data[i + 1], sampling_rate, bp_centerFreq, bp_bandWidth, 2, FilterTypes.BUTTERWORTH.value, 0)  # 대역 통과 필터
-
-        trial += 1
 
         bands = DataFilter.get_avg_band_powers(data, eeg_channels, sampling_rate, True)  # 채널별 데이터 대역 파워의 평균 및 표준편차 계산
         feature_vector = np.concatenate((bands[0], bands[1]))  # 대역 평균[0], 표준편차[1] 취합
@@ -79,12 +80,17 @@ def main():
         prediction = focusing.predict(feature_vector)  # 예측값 생성
         print('Focusing: %f' % prediction)
         focusing.release()  # 분류 종료
+        trial += 1  # 예측 데이터 생성 횟수 갱신
 
         if prediction > threshold:  # 예측값이랑 임계값 비교후 아두이노에 전송
             ser.write(b'1')  # 집중 상태로 판단
             focusing_point += 1  # 집중 데이터 갯수 증가
+            continuous_focusing_point += 1  # 지속적인 집중 판단을 위해 값 갱신
         else:
             ser.write(b'0')  # 비집중 상태로 판단
+            if continuous_focusing_point >= 3:  # 집중이 끊어지기 이전에 집중을 3초 이상 지속했다면
+                continuous_focusing_table.append(continuous_focusing_point)  # 해당 정보 기록
+            continuous_focusing_point = 0  # 집중이 끊어지면 새로운 값을 기록하기 위해 초기화
 
         if keyboard.is_pressed('space'):
             break
@@ -94,13 +100,20 @@ def main():
     # 스트림 종료
 
     BoardShim.log_message(LogLevels.LEVEL_INFO.value, 'Stream end')  # 스트림 종료 메시지 출력
-    x = np.arange(2)
-    trial_label = ['Trial', 'Focusing']
-    trial_value = [trial, focusing_point]
+    x = np.arange(4)
+    trial_label = ['Trial', 'Focusing', 'Continuous', 'Maximum']  # 스트림 횟수, 집중 횟수, 지속적인 집중 횟수, 최대 지속시간
+    if len(continuous_focusing_table) != 0:
+        maximum = max(continuous_focusing_table)
+    else:
+        maximum = 0
+    trial_value = [trial, focusing_point, len(continuous_focusing_table), maximum]
     plt.bar(x, trial_value)
     plt.xticks(x, trial_label)
     plt.show()
     # 데이터 스트림 횟수와 그 중 집중한 횟수 시각화
 
+    print(f'\nYour Result: {focusing_point/trial}')
+    print('Press enter to exit..')
+    exit = input()
 if __name__ == "__main__":
     main()
