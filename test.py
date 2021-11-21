@@ -11,8 +11,8 @@ from brainflow.ml_model import MLModel, BrainFlowMetrics, BrainFlowClassifiers, 
 
 def main():
     option = ['serial_port', 'arduino_port', 'baud_rate', 'focusing_option', 'threshold']  # 옵션 label
-    #op_val = []  # 옵션 value
-    op_val = ['COM5', 'COM6', 9600, 0, 0.8]
+    # op_val = []  # 옵션 value
+    op_val = ['COM4', 'COM3', 9600, 1, 0.8]
 
     '''
     for i in option:  # 사용할 옵션 입력
@@ -41,9 +41,10 @@ def main():
     eeg_channels = eeg_channels[:2]  # 사용할 채널이 1,2이므로 불러온 채널리스트를 슬라이싱
 
     if op_val[3] == 0:  # ML 라이브러리 불러와서 모델 값 설정
-        focusing_params = BrainFlowModelParams(BrainFlowMetrics.RELAXATION.value,BrainFlowClassifiers.REGRESSION.value)
+        focusing_params = BrainFlowModelParams(BrainFlowMetrics.RELAXATION.value, BrainFlowClassifiers.REGRESSION.value)
     else:
-        focusing_params = BrainFlowModelParams(BrainFlowMetrics.CONCENTRATION.value,BrainFlowClassifiers.REGRESSION.value)
+        focusing_params = BrainFlowModelParams(BrainFlowMetrics.CONCENTRATION.value,
+                                               BrainFlowClassifiers.REGRESSION.value)
 
     focusing = MLModel(focusing_params)  # ML 모델 생성
 
@@ -62,20 +63,20 @@ def main():
     focusing_point = 0  # 예측 데이터 중, 집중한 데이터 갯수
     continuous_focusing_point = 0  # 지속적인 집중을 수행한 횟수
     continuous_focusing_table = []  # 지속적인 집중에 대한 정보 테이블
-    
+
     while True:
-        while board.get_board_data_count() < 250:  # 읽어들일 데이터 수
-            time.sleep(0.005)  # 데이터 읽어오는 시간
-        data = board.get_current_board_data(250)[:3, :]  # 보드에서 데이터 읽어오기, 0번행은 인덱스
-        time.sleep(1)  # 출력 시간 조정
-        
+        time.sleep(5)  # 계산 텀 설정
+        data = board.get_board_data()[:3, :]  # 보드에서 데이터 읽어오기
+
         for i in range(len(eeg_channels)):  # 필터링
-            DataFilter.perform_bandstop(data[i + 1], sampling_rate, bandStopFrequency, 4.0, 2, FilterTypes.BUTTERWORTH.value, 0)  # 노치 필터
-            DataFilter.perform_bandpass(data[i + 1], sampling_rate, bp_centerFreq, bp_bandWidth, 2, FilterTypes.BUTTERWORTH.value, 0)  # 대역 통과 필터
+            DataFilter.perform_bandstop(data[i + 1], sampling_rate, bandStopFrequency, 4.0, 2,
+                                        FilterTypes.BUTTERWORTH.value, 0)  # 노치 필터
+            DataFilter.perform_bandpass(data[i + 1], sampling_rate, bp_centerFreq, bp_bandWidth, 2,
+                                        FilterTypes.BUTTERWORTH.value, 0)  # 대역 통과 필터
 
         bands = DataFilter.get_avg_band_powers(data, eeg_channels, sampling_rate, True)  # 채널별 데이터 대역 파워의 평균 및 표준편차 계산
         feature_vector = np.concatenate((bands[0], bands[1]))  # 대역 평균[0], 표준편차[1] 취합
-        
+
         focusing.prepare()  # 분류 준비
         prediction = focusing.predict(feature_vector)  # 예측값 생성
         print('Focusing: %f' % prediction)
@@ -112,8 +113,10 @@ def main():
     plt.show()
     # 데이터 스트림 횟수와 그 중 집중한 횟수 시각화
 
-    print(f'\nYour Result: {focusing_point/trial}')
+    print(f'\nYour Result: {(focusing_point / trial)*100}')
     print('Press enter to exit..')
     exit = input()
+
+
 if __name__ == "__main__":
     main()
