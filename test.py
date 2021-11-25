@@ -11,15 +11,13 @@ from brainflow.ml_model import MLModel, BrainFlowMetrics, BrainFlowClassifiers, 
 
 def main():
     option = ['serial_port', 'arduino_port', 'baud_rate', 'focusing_option', 'threshold']  # 옵션 label
-    # op_val = []  # 옵션 value
-    op_val = ['COM4', 'COM3', 9600, 1, 0.8]
+    op_val = []  # 옵션 value
 
-    '''
     for i in option:  # 사용할 옵션 입력
         print(f'{i}: ', end='')
         op_val.append(input())
     op_val[3] = int(op_val[3])
-    op_val[4] = float(op_val[4])'''
+    op_val[4] = float(op_val[4])
     threshold = op_val[4]
 
     bandStopFrequency = 60.0  # 노치 필터 값
@@ -43,8 +41,7 @@ def main():
     if op_val[3] == 0:  # ML 라이브러리 불러와서 모델 값 설정
         focusing_params = BrainFlowModelParams(BrainFlowMetrics.RELAXATION.value, BrainFlowClassifiers.REGRESSION.value)
     else:
-        focusing_params = BrainFlowModelParams(BrainFlowMetrics.CONCENTRATION.value,
-                                               BrainFlowClassifiers.REGRESSION.value)
+        focusing_params = BrainFlowModelParams(BrainFlowMetrics.CONCENTRATION.value, BrainFlowClassifiers.REGRESSION.value)
 
     focusing = MLModel(focusing_params)  # ML 모델 생성
 
@@ -89,11 +86,12 @@ def main():
             continuous_focusing_point += 1  # 지속적인 집중 판단을 위해 값 갱신
         else:
             ser.write(b'0')  # 비집중 상태로 판단
-            if continuous_focusing_point >= 3:  # 집중이 끊어지기 이전에 집중을 3초 이상 지속했다면
+            if continuous_focusing_point >= 3:  # 이전 텀에서 집중으로 판단된 횟수가 3이상이라면
                 continuous_focusing_table.append(continuous_focusing_point)  # 해당 정보 기록
             continuous_focusing_point = 0  # 집중이 끊어지면 새로운 값을 기록하기 위해 초기화
 
         if keyboard.is_pressed('space'):
+            continuous_focusing_table.append(continuous_focusing_point)  # 집중이 지속되는 상태에서 종료했을 때 값 손실을 막기위해
             break
 
     board.stop_stream()
@@ -102,7 +100,7 @@ def main():
 
     BoardShim.log_message(LogLevels.LEVEL_INFO.value, 'Stream end')  # 스트림 종료 메시지 출력
     x = np.arange(4)
-    trial_label = ['Trial', 'Focusing', 'Continuous', 'Maximum']  # 스트림 횟수, 집중 횟수, 지속적인 집중 횟수, 최대 지속시간
+    trial_label = ['Trial', 'Focusing', 'Continuous', 'Maximum']  # 스트림 횟수, 집중 횟수, 지속적인 집중 횟수, 최대 지속 계산 텀
     if len(continuous_focusing_table) != 0:
         maximum = max(continuous_focusing_table)
     else:
@@ -112,8 +110,7 @@ def main():
     plt.xticks(x, trial_label)
     plt.show()
     # 데이터 스트림 횟수와 그 중 집중한 횟수 시각화
-
-    print(f'\nYour Result: {(focusing_point / trial)*100}')
+    print('\nYour Result: {:.2f}'.format((focusing_point / trial) * 100))
     print('Press enter to exit..')
     exit = input()
 
