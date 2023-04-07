@@ -17,3 +17,12 @@
 * 김\*금 - 자료 조사 및 발표  
 * 이\*형 - 서류 처리  
 * 조\*재 - 유지보수
+
+### 개발 환경
+* Python
+* 하드웨어
+  * OpenBCI Cyton Board
+  * Arduino UNO R3
+  * MG946R
+  * SZH-PWSDF-036
+  * PCA9685
