@@ -1,7 +1,7 @@
 # Capstone2021 
 ## A prosthetic hand control project using OpenBCI and Arduino
 ### 진행 기간
-2021.03.04 ~ 2021.06.03
+2021.03.04 ~ 2021.06.03  
 2021.09.02 ~ 2021.12.02
 ### 참여 인원
 
