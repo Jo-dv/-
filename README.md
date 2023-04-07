@@ -18,9 +18,9 @@
 * 이\*형 - 서류 처리  
 * 조\*재 - 유지보수
 
-### 개발 환경
+### 진행 환경
 * Python
-* API: Brainflow
+* API: Brainflow <https://brainflow.readthedocs.io/en/stable/UserAPI.html#python-api-reference
 * IDE: PyCharm, Arduino IDE
 * Hardware
   * OpenBCI Cyton Board
