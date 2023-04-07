@@ -1,5 +1,5 @@
 # Capstone2021 
-본 repository는 21년도 졸업 프로젝트 소스 코드 저장 목적으로 21년 11월 15일 처음 생성되었습니다.  
+본 repository는 21년도 부경대학교 컴퓨터공학과 졸업 프로젝트 소스 코드 저장 목적으로 21년 11월 15일 처음 생성되었습니다.  
 23년 4월 7일부터 관리를 위해 기억이 나는 대로 최대한 정리 진행 예정입니다.
 
 ## 프로젝트 내용
@@ -18,13 +18,20 @@
 * 이\*형 - 서류 처리  
 * 조\*재 - 유지보수
 
-### 진행 환경
-* Python
-* API: Brainflow <https://brainflow.readthedocs.io/en/stable/UserAPI.html#python-api-reference
-* IDE: PyCharm, Arduino IDE
+### 개발 및 구현 환경
+* Software
+  * Language: Python
+  * API: <a href="https://brainflow.readthedocs.io/en/stable/UserAPI.html#python-api-reference">Brainflow</a>
+  * IDE: PyCharm, Arduino IDE
+  * <a href="https://openbci.com/downloads">OpenBCI GUI for WINDOWS</a>
 * Hardware
-  * OpenBCI Cyton Board
+  * <a href="https://docs.openbci.com/Cyton/CytonLanding/">OpenBCI Cyton Board</a>
   * Arduino UNO R3
   * MG946R
   * SZH-PWSDF-036
   * PCA9685
+* Material
+  * Model: <a href="https://inmoov.fr/hand-and-forarm/">InMoov Hand and Forarm</a>
+  * Power Supply: 18650 Li-ion battery(3500mAh) 2ea
+  * M3x20 Bolt 50ea
+  * M3 Nut 50ea
