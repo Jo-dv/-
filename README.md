@@ -20,7 +20,7 @@
 
 ### 개발 환경
 * Python
-* 하드웨어
+* Hardware
   * OpenBCI Cyton Board
   * Arduino UNO R3
   * MG946R
