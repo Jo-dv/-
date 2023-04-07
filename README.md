@@ -21,6 +21,7 @@
 ### 개발 환경
 * Python
 * API: Brainflow
+* IDE: PyCharm, Arduino IDE
 * Hardware
   * OpenBCI Cyton Board
   * Arduino UNO R3
