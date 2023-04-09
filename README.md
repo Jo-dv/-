@@ -3,7 +3,8 @@
 23년 4월 7일부터 관리를 위해 기억이 나는 대로 최대한 정리 진행 예정입니다.
 
 ## 프로젝트 내용
-3D 프린터로 출력하여 제작한 의수를 뇌파(EEG) 측정 플랫폼을 통해 제어하는 프로젝트를 수행하였습니다.
+OpenBCI를 이용한 이용한 의수 제어  
+* 해당 프로젝트는 생체신호 감지 플랫폼인 OpenBCI를 이용하여 뇌파(EEG) 데이터를 수집 및 분석하여 집중 여부를 구분해 의수의 움직임을 제어하는 프로젝트입니다.
 
 ## 진행 기간
 * 2021.03.04 ~ 2021.06.03 - 1학기  
@@ -19,22 +20,36 @@
 * 조\*재 - 유지보수
 
 ## 개발 및 구현 환경
-* Software
+### `Software`
   * Language: Python
   * API: <a href="https://brainflow.readthedocs.io/en/stable/UserAPI.html#python-api-reference">Brainflow</a>
   * IDE: PyCharm, Arduino IDE
   * <a href="https://openbci.com/downloads">OpenBCI GUI for WINDOWS</a>
-* Hardware
+### `Hardware`
   * <a href="https://docs.openbci.com/Cyton/CytonLanding/">OpenBCI Cyton Board</a>
   * Arduino UNO R3
   * MG946R
   * SZH-PWSDF-036
   * PCA9685
-* Material
+### `Material`
   * Model: <a href="https://inmoov.fr/hand-and-forarm/">InMoov Hand and Forarm</a>
-  * Power Supply: 18650 Li-ion battery(3500mAh) 2ea
-  * M3x20 Bolt 50ea
-  * M3 Nut 50ea
+  * Power Supply: 18650 Li-ion battery(3500mAh)
+  * M3x20 Bolt and Nut
+  
+## 진행 내용
+### 1학기
+  * WiFi Shield를 이용한 Ganglion Board 작동 테스트
+  * 의수 제작
+  * OpenBCI와 아두이노(의수) 연결
+    * GUI의 Networking Widget과 Focusing Widget 사용
+### 2학기
+  * Motor Imagery를 이용한 제어를 위해 Cyton Board로 교체
+    * Motoar Iamgery 실험
+      * 실험 실패로 GUI를 이용하여 논문 진행
+      * GUI 업데이트로 인한 코드 변경
+  * 경진대회 참여를 위한 코드 구현 
+
+## 구동 이미지
   
 ## 성과
 2021 교내 국제 캡스톤디자인 경진대회 대상  
