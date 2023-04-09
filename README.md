@@ -7,8 +7,12 @@ OpenBCI를 이용한 이용한 의수 제어
 * 해당 프로젝트는 생체신호 감지 플랫폼인 OpenBCI를 이용하여 뇌파(EEG) 데이터를 수집 및 분석하여 집중 여부를 구분해 의수의 움직임을 제어하는 프로젝트입니다.  
 
 <div>
-    <img src="https://user-images.githubusercontent.com/63555689/230773292-f3eb4260-bd46-4383-80a1-3909c666bca6.svg" width="150">
-    <img src="https://user-images.githubusercontent.com/63555689/230773991-e2af11dd-bc38-481e-b132-dc37820ec605.png" width="200">
+    <a href="https://openbci.com/">
+        <img src="https://user-images.githubusercontent.com/63555689/230773292-f3eb4260-bd46-4383-80a1-3909c666bca6.svg" width="150">
+    </a>
+    <a href="https://inmoov.fr/">
+        <img src="https://user-images.githubusercontent.com/63555689/230773991-e2af11dd-bc38-481e-b132-dc37820ec605.png" width="200">
+    </a>
 </div> 
 
 ## 진행 기간
