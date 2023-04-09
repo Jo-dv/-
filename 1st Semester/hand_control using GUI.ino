@@ -3,7 +3,7 @@
 
 Adafruit_PWMServoDriver pwm=Adafruit_PWMServoDriver();
 
-const byte numChars = 32;  // 배열의 
+const byte numChars = 32;  // 배열의 길이
 char receivedChars[numChars];  // 입력받은 데이터를 저장할 길이 32짜리 배열
 String previousData = "";  // 갱신된 데이터와 일치여부를 판별하기 위해 마지막으로 들어온 값을 저장할 
 boolean newData = false;  // 데이터 갱신 여부
@@ -62,7 +62,7 @@ void showNewData() {
     }
 }
 
-void alltorest() {  // 손가락 이완, 동작 코드는 adafruit에서 제공하는 기본 예제를 
+void alltorest() {  // 손가락 이완, 동작 코드는 adafruit에서 제공하는 기본 예제를 사용
 for(int min_pulse = 600; min_pulse >= 150; min_pulse--)  // 엄지 손가락을 먼저 이완시킨 후
     pwm.setPWM(0,0,min_pulse);
 for(int min_pulse = 600; min_pulse >= 150; min_pulse--) {  // 나머지 손가락들을 순차적으로 이완
