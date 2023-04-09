@@ -40,13 +40,13 @@ OpenBCI를 이용한 이용한 의수 제어
 ### 1학기
   * WiFi Shield를 이용한 Ganglion Board 작동 테스트
   * 의수 제작
-  * OpenBCI와 아두이노(의수) 연결
+  * OpenBCI와 Arduino(의수) 연결
     * GUI의 Networking Widget과 Focusing Widget 사용
 ### 2학기
   * Motor Imagery를 이용한 제어를 위해 Cyton Board로 교체
     * Motoar Iamgery 실험
       * 실험 실패로 GUI를 이용하여 논문 진행
-      * GUI 업데이트로 인한 코드 변경
+      * GUI 업데이트로 인한 신호 비교 코드 변경
   * 경진대회 참여를 위한 코드 구현 
 
 ## 구동 이미지
