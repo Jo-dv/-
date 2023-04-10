@@ -55,10 +55,81 @@ OpenBCI를 이용한 이용한 의수 제어
   * Motor Imagery를 이용한 제어를 위해 Cyton Board로 교체
     * Motoar Iamgery 실험
       * 실험 실패로 GUI를 이용하여 논문 진행
-      * GUI 업데이트로 인한 신호 비교 코드 변경
   * 경진대회 참여용 코드 구현 
 
+## 트러블 슈팅
+<details>
+<summary>GUI 업데이트 이후 Arduino 비작동 문제</summary>
+  <div markdown="1">
+
+  * Serial 프로토콜을 이용한 Focus 데이터 변경으로 인해 발생한 문제
+    * Networking Data Format 변경 전후  
+      |변경 전  |변경 후|
+      |--       |--   |
+      |"true\n" |"1\n"|
+      |"false\n"|"0\n"|
+  * 수신된 데이터를 비교하는 코드를 변경된 Format에 맞춰 변경해 줌으로써 해결
+    * 변경 전
+      ```
+      if (s.equals("false")) {
+        \\Code
+      }
+      else if (s.equals("true")) { 
+        \\Code
+      }
+      ```
+    * 변경 후
+      ```
+      if (s.equals("1")) {
+        \\Code
+      }
+      else if (s.equals("0")) { 
+        \\Code
+      }
+      ```
+  
+  </div>
+</details>
+
+<details>
+<summary>Motor imagery 실험 문제</summary>
+  <div markdown="1">
+
+  * 작성 예정
+  
+  </div>
+</details>
+
+<details>
+<summary>Focus 실험 문제</summary>
+  <div markdown="1">
+
+  * 1학기 실험 당시 Focus Widget은 High beta and low alpha, 즉 Meditation 형태의 집중 상태를 측정하는 Widget
+    
+    > Reading the paragraph again, the “research” that led to the conclusion “high alpha low beta”, was actually referring to the small tests we did using OpenBCI, when Jordan’s performing meditation, and when other users are trying to “focus” during our spring exhibition.
+    > <br></br>
+    > For the exact values “0.7-2.0uv” or “0.0-0.7uv”, they were also actually referring to this “high alpha low beta” pattern. That’s why later versions of the focus widget would have tweak-able thresholds compared to set values.
+    > <br></br>
+    > The word “focus” was a generic term. While the original data was derived from my classmate Jordan’s brainwave when he’s doing “meditation”, it also mostly worked when I told users to “focus”. I would suggest “focus of visual attention” or “meditation” as more accurate to describe the desired “focused” state.
+    > <br></br>
+    > https://openbci.com/forum/index.php?p=/discussion/2418/gui-focus-widget-algorithm-question (2023.04.10)
+    * 해당 사실을 모르고 Concentraion에 맞춰 실험을 진행하였기에 제어하는 데 어려움이 발생  
+  
+  * 2학기 시점, 업데이트된 GUI는 Meditation과 Concentraion을 모두 지원하였기에 이를 인지하고 실험을 진행함으로써 해결  
+
+    > Choose from "Relaxation" or "Concentration" as the desired flavor of Focus to detect.
+    > <br></br>
+    > "Relaxation" generally looks at FFT values associated with Delta, Theta and Alpha brainwaves, while "Concentration" looks at Beta and Gamma brainwaves.
+    > <br></br>
+    > Relaxation is usually achieved by "meditating" with eyes closed, while Concentration can be achieved by focusing intently with eyes open. 
+    > <br></br>
+    > https://docs.openbci.com/Software/OpenBCISoftware/GUIWidgets/#focus-widget (2023.04.10)
+    
+  </div>
+</details>
+
 ## 구동 이미지
+  * 작성 예정
   
 ## 성과
 2021 교내 국제 캡스톤디자인 경진대회 대상  
