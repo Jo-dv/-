@@ -59,13 +59,25 @@ OpenBCI를 이용한 이용한 의수 제어
 
 ## 트러블 슈팅
 <details>
+<summary>OpenBCI USB Dongle 인식 문제</summary>
+  <div markdown="1">
+
+  * 관련 드라이버가 설치되어 있지 않아서 발생한 문제
+  * 드라이버(D2XX Driver)를 설치해 줌으로써 해결
+    * 설치 당시 버전: 2.12.28
+    * https://ftdichip.com/drivers/d2xx-drivers/
+  
+  </div>
+</details>
+
+<details>
 <summary>GUI 업데이트 이후 Arduino 비작동 문제</summary>
   <div markdown="1">
 
   * Serial 프로토콜을 이용한 Focus 데이터 변경으로 인해 발생한 문제
     * Networking Data Format 변경 전후  
       |변경 전  |변경 후|
-      |--       |--   |
+      |:--:     |:--: |
       |"true\n" |"1\n"|
       |"false\n"|"0\n"|
   * 수신된 데이터를 비교하는 코드를 변경된 Format에 맞춰 변경해 줌으로써 해결
