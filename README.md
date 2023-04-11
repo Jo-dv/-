@@ -164,9 +164,18 @@ OpenBCI를 이용한 이용한 의수 제어
   </div>
 </details>
 
-## 구동 이미지
-  * 작성 예정
-  
+## 결과물
+### 완성품
+<img src="https://user-images.githubusercontent.com/63555689/231131716-6437f212-b7fd-4919-8d99-d4f2ee6fb531.jpg" width="450">  
+
+### using GUI
+<img src="https://user-images.githubusercontent.com/63555689/231131408-e1914006-71ba-47c7-9751-8b181e6c2021.PNG" width="450">  
+
+### using python
+<img src="https://user-images.githubusercontent.com/63555689/231132599-638bcf64-ed6a-4ed7-903d-5f40ae45159d.PNG" width="450"> 
+<img src="https://user-images.githubusercontent.com/63555689/231132620-23094982-e0bf-4aad-8d78-c221eac37320.PNG" width="450"> 
+<img src="https://user-images.githubusercontent.com/63555689/231132636-ac945849-05e9-4360-8163-8bca150b036b.PNG" width="450"> 
+
 ## 성과
 2021 교내 국제 캡스톤디자인 경진대회 대상  
 <img src="https://user-images.githubusercontent.com/63555689/230577670-e9190448-2af4-4579-a97d-0bd92e941bd5.jpg" width="450">  
