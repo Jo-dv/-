@@ -9,12 +9,12 @@ OpenBCI를 이용한 이용한 의수 제어
 * 해당 프로젝트는 생체신호 감지 플랫폼인 OpenBCI를 이용하여 뇌파(EEG) 데이터를 수집 및 분석하여 집중 여부를 구분해 의수의 움직임을 제어하는 프로젝트입니다.  
 
 <div>
-    <a href="https://openbci.com/">
-        <img src="https://user-images.githubusercontent.com/63555689/230773292-f3eb4260-bd46-4383-80a1-3909c666bca6.svg" width="150">
-    </a>
-    <a href="https://inmoov.fr/">
-        <img src="https://user-images.githubusercontent.com/63555689/230773991-e2af11dd-bc38-481e-b132-dc37820ec605.png" width="200">
-    </a>
+  <a href="https://openbci.com/">
+      <img src="https://user-images.githubusercontent.com/63555689/230773292-f3eb4260-bd46-4383-80a1-3909c666bca6.svg" width="150">
+  </a>
+  <a href="https://inmoov.fr/">
+      <img src="https://user-images.githubusercontent.com/63555689/230773991-e2af11dd-bc38-481e-b132-dc37820ec605.png" width="200">
+  </a>
 </div> 
 
 ## 진행 기간
@@ -168,7 +168,10 @@ OpenBCI를 이용한 이용한 의수 제어
 
 ## 결과물
 ### 완성품
-<img src="https://user-images.githubusercontent.com/63555689/231131716-6437f212-b7fd-4919-8d99-d4f2ee6fb531.jpg" width="450">  
+<div>
+  <img src="https://user-images.githubusercontent.com/63555689/231131716-6437f212-b7fd-4919-8d99-d4f2ee6fb531.jpg" width="450">  
+  <img src="https://user-images.githubusercontent.com/63555689/231167569-2870e099-a55f-47f4-aa86-3bfbe500bc6d.jpg" height="337.5">  
+</div>
 
 ### using GUI
 * 집중(Concentration) 상태
@@ -179,10 +182,10 @@ OpenBCI를 이용한 이용한 의수 제어
 <img src="https://user-images.githubusercontent.com/63555689/231132599-638bcf64-ed6a-4ed7-903d-5f40ae45159d.PNG" width="450">  
 
 * 스트림 실행 및 종료  
-<img src="https://user-images.githubusercontent.com/63555689/231132620-23094982-e0bf-4aad-8d78-c221eac37320.PNG" width="450">  
-
-* 결과 시각화  
-<img src="https://user-images.githubusercontent.com/63555689/231132636-ac945849-05e9-4360-8163-8bca150b036b.PNG" width="450"> 
+<div>
+  <img src="https://user-images.githubusercontent.com/63555689/231132620-23094982-e0bf-4aad-8d78-c221eac37320.PNG" width="450">  
+  <img src="https://user-images.githubusercontent.com/63555689/231132636-ac945849-05e9-4360-8163-8bca150b036b.PNG" width="450"> 
+</div>
 
 ## 성과
 2021 교내 국제 캡스톤디자인 경진대회 대상  
