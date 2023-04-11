@@ -1,6 +1,8 @@
 # Capstone2021 
 본 repository는 21년도 부경대학교 컴퓨터공학과 졸업 프로젝트 소스 코드 저장 목적으로 21년 11월 15일 처음 생성되었습니다.  
-23년 4월 7일부터 관리를 위해 기억이 나는 대로 최대한 정리 진행 예정입니다.
+
+~~23년 4월 7일부터 관리를 위해 기억이 나는 대로 최대한 정리 진행 예정입니다.~~  
+23년 4월 11일 링크 확인 작성 완료되었습니다.
 
 ## 프로젝트 내용
 OpenBCI를 이용한 이용한 의수 제어  
@@ -82,7 +84,7 @@ OpenBCI를 이용한 이용한 의수 제어
     > <br></br>
     > The word “focus” was a generic term. While the original data was derived from my classmate Jordan’s brainwave when he’s doing “meditation”, it also mostly worked when I told users to “focus”. I would suggest “focus of visual attention” or “meditation” as more accurate to describe the desired “focused” state.
     > <br></br>
-    > https://openbci.com/forum/index.php?p=/discussion/2418/gui-focus-widget-algorithm-question (2023.04.10)
+    > https://openbci.com/forum/index.php?p=/discussion/2418/gui-focus-widget-algorithm-question
     * 해당 사실을 모르고 Concentraion에 맞춰 실험을 진행하였기에 제어하는 데 어려움이 발생  
   
   * 2학기 시점, 업데이트된 GUI는 Meditation과 Concentraion을 모두 지원하였기에 이를 인지하고 실험을 진행함으로써 해결  
@@ -93,7 +95,7 @@ OpenBCI를 이용한 이용한 의수 제어
     > <br></br>
     > Relaxation is usually achieved by "meditating" with eyes closed, while Concentration can be achieved by focusing intently with eyes open. 
     > <br></br>
-    > https://docs.openbci.com/Software/OpenBCISoftware/GUIWidgets/#focus-widget (2023.04.10)
+    > https://docs.openbci.com/Software/OpenBCISoftware/GUIWidgets/#focus-widget
     
   </div>
 </details>
@@ -169,14 +171,21 @@ OpenBCI를 이용한 이용한 의수 제어
 <img src="https://user-images.githubusercontent.com/63555689/231131716-6437f212-b7fd-4919-8d99-d4f2ee6fb531.jpg" width="450">  
 
 ### using GUI
+* 집중(Concentration) 상태
 <img src="https://user-images.githubusercontent.com/63555689/231131408-e1914006-71ba-47c7-9751-8b181e6c2021.PNG" width="450">  
 
 ### using python
-<img src="https://user-images.githubusercontent.com/63555689/231132599-638bcf64-ed6a-4ed7-903d-5f40ae45159d.PNG" width="450"> 
-<img src="https://user-images.githubusercontent.com/63555689/231132620-23094982-e0bf-4aad-8d78-c221eac37320.PNG" width="450"> 
+* 옵션 입력 및 실행  
+<img src="https://user-images.githubusercontent.com/63555689/231132599-638bcf64-ed6a-4ed7-903d-5f40ae45159d.PNG" width="450">  
+
+* 스트림 실행 및 종료  
+<img src="https://user-images.githubusercontent.com/63555689/231132620-23094982-e0bf-4aad-8d78-c221eac37320.PNG" width="450">  
+
+* 결과 시각화  
 <img src="https://user-images.githubusercontent.com/63555689/231132636-ac945849-05e9-4360-8163-8bca150b036b.PNG" width="450"> 
 
 ## 성과
 2021 교내 국제 캡스톤디자인 경진대회 대상  
+
 <img src="https://user-images.githubusercontent.com/63555689/230577670-e9190448-2af4-4579-a97d-0bd92e941bd5.jpg" width="450">  
 <img src="https://user-images.githubusercontent.com/63555689/230578985-bb3d511e-5787-42d4-91cc-dcd04c3be9ed.png" width="450">
