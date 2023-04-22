@@ -2,20 +2,13 @@
 본 repository는 21년도 부경대학교 컴퓨터공학과 졸업 프로젝트 소스 코드 저장 목적으로 21년 11월 15일 처음 생성되었습니다.  
 
 ~~23년 4월 7일부터 관리를 위해 기억이 나는 대로 최대한 정리 진행 예정입니다.~~  
-23년 4월 11일 링크 확인 및 작성 완료되었습니다.
+23년 4월 23일 링크 확인 및 작성 완료되었습니다.
 
 ## 프로젝트 내용
 OpenBCI를 이용한 이용한 의수 제어  
 * 해당 프로젝트는 생체신호 감지 플랫폼인 OpenBCI를 이용하여 뇌파(EEG) 데이터를 수집 및 분석하여 집중 여부를 구분해 의수의 움직임을 제어하는 프로젝트입니다.  
 
-<div>
-  <a href="https://openbci.com/">
-      <img src="https://user-images.githubusercontent.com/63555689/230773292-f3eb4260-bd46-4383-80a1-3909c666bca6.svg" width="150">
-  </a>
-  <a href="https://inmoov.fr/">
-      <img src="https://user-images.githubusercontent.com/63555689/230773991-e2af11dd-bc38-481e-b132-dc37820ec605.png" width="200">
-  </a>
-</div> 
+<img src="https://user-images.githubusercontent.com/63555689/233808195-b8178fb6-0431-4b7e-a8ee-a5127f0c559e.png">
 
 ## 진행 기간
 * 2021.03.04 ~ 2021.06.03 - 1학기  
