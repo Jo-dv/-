@@ -2,13 +2,13 @@
 본 repository는 21년도 부경대학교 컴퓨터공학과 졸업 프로젝트 소스 코드 저장 목적으로 21년 11월 15일 처음 생성되었습니다.  
 
 ~~23년 4월 7일부터 관리를 위해 기억이 나는 대로 최대한 정리 진행 예정입니다.~~  
-23년 4월 23일 링크 확인 및 작성 완료되었습니다.
+23년 4월 26일 링크 확인 및 작성 완료되었습니다.
 
 ## 프로젝트 내용
 OpenBCI를 이용한 이용한 의수 제어  
 * 해당 프로젝트는 생체신호 감지 플랫폼인 OpenBCI를 이용하여 뇌파(EEG) 데이터를 수집 및 분석하여 집중 여부를 구분해 의수의 움직임을 제어하는 프로젝트입니다.  
 
-<img src="https://user-images.githubusercontent.com/63555689/233808195-b8178fb6-0431-4b7e-a8ee-a5127f0c559e.png">
+<img src="https://github.com/Jo-dv/Capstone2021/blob/master/img/architecture.png">
 
 ## 진행 기간
 * 2021.03.04 ~ 2021.06.03 - 1학기  
@@ -160,28 +160,31 @@ OpenBCI를 이용한 이용한 의수 제어
 </details>
 
 ## 결과물
-### 완성품
+### 동작 모습  
+<img src="https://github.com/Jo-dv/Capstone2021/blob/master/img/manipulate.gif" height="350"> 
+
+### 완성품 
 <div>
-  <img src="https://user-images.githubusercontent.com/63555689/231131716-6437f212-b7fd-4919-8d99-d4f2ee6fb531.jpg" width="450">  
-  <img src="https://user-images.githubusercontent.com/63555689/231167569-2870e099-a55f-47f4-aa86-3bfbe500bc6d.jpg" height="337.5">  
+  <img src="https://github.com/Jo-dv/Capstone2021/blob/master/img/completion_1.jpg" width="450">  
+  <img src="https://github.com/Jo-dv/Capstone2021/blob/master/img/completion_2.jpg" height="337.5">  
 </div>
 
 ### using GUI
 * 집중(Concentration) 상태
-<img src="https://user-images.githubusercontent.com/63555689/231131408-e1914006-71ba-47c7-9751-8b181e6c2021.PNG" width="450">  
+<img src="https://github.com/Jo-dv/Capstone2021/blob/master/img/focusW_on_focus.PNG" width="450">  
 
 ### using python
 * 옵션 입력 및 실행  
-<img src="https://user-images.githubusercontent.com/63555689/231132599-638bcf64-ed6a-4ed7-903d-5f40ae45159d.PNG" width="450">  
+<img src="https://github.com/Jo-dv/Capstone2021/blob/master/img/python_init.PNG" width="450">  
 
 * 스트림 실행 및 종료  
 <div>
-  <img src="https://user-images.githubusercontent.com/63555689/231132620-23094982-e0bf-4aad-8d78-c221eac37320.PNG" width="450">  
-  <img src="https://user-images.githubusercontent.com/63555689/231132636-ac945849-05e9-4360-8163-8bca150b036b.PNG" width="450"> 
+  <img src="https://github.com/Jo-dv/Capstone2021/blob/master/img/python_result_1.PNG" width="450">  
+  <img src="https://github.com/Jo-dv/Capstone2021/blob/master/img/python_result_2.PNG" width="450"> 
 </div>
 
 ## 성과
 2021 교내 국제 캡스톤디자인 경진대회 대상  
 
-<img src="https://user-images.githubusercontent.com/63555689/230577670-e9190448-2af4-4579-a97d-0bd92e941bd5.jpg" width="450">  
-<img src="https://user-images.githubusercontent.com/63555689/230578985-bb3d511e-5787-42d4-91cc-dcd04c3be9ed.png" width="450">
+<img src="https://github.com/Jo-dv/Capstone2021/blob/master/img/competiton_notice.jpg" width="450">  
+<img src="https://github.com/Jo-dv/Capstone2021/blob/master/img/competiton_result.png" width="450">
