@@ -5,7 +5,7 @@ Adafruit_PWMServoDriver pwm=Adafruit_PWMServoDriver();
 
 const byte numChars = 32;  // 배열의 길이
 char receivedChars[numChars];  // 입력받은 데이터를 저장할 길이 32짜리 배열
-String previousData = "";  // 갱신된 데이터와 일치여부를 판별하기 위해 마지막으로 들어온 값을 저장할 
+String previousData = "";  // 갱신된 데이터와 일치여부를 판별하기 위해 마지막으로 들어온 값을 저장할 변수
 boolean newData = false;  // 데이터 갱신 여부
  
 void setup() {  // 전원 인가 시 초기화 코드
@@ -13,7 +13,7 @@ pwm.begin();  // pwm 모듈은 기본 제공 라이브러리 코드 사용
 pwm.setOscillatorFrequency(27000000);
 pwm.setPWMFreq(50);
 Serial.begin(57600);  // 시리얼 통신
-alltorest(); //for reset, 모터 각도 초기화
+alltorest();  //for reset, 모터 각도 초기화
 }
 
 void loop() {
